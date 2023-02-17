@@ -1,0 +1,21 @@
+{
+  "name": "moji",
+  "private": true,
+  "version": "1.0.0",
+  "main": "out/app.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn build && concurrently \"electron ./out/app.js\" \"yarn css:dev\"",
+    "build": "tsc",
+    "css:dev": "tailwindcss -i ./screens/app.css -o ./screens/out.css --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "electron": "^23.1.0"
+  }
+}
