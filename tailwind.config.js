@@ -2,7 +2,17 @@
 module.exports = {
   content: ["./screens/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        pretendard: [
+          "Pretendard Variable",
+          "-apple-system",
+          "Inter",
+          "Noto Sans KR",
+          "sans-serif",
+        ],
+      },
+    },
   },
   plugins: [],
 }

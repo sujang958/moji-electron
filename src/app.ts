@@ -48,6 +48,10 @@ app.whenReady().then(() => {
         app.quit()
       },
     },
+    {
+      label: "License",
+      type: "normal",
+    },
   ])
 
   tray.setContextMenu(contextMenu)
