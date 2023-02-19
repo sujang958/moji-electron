@@ -10,8 +10,10 @@
   <body
     class="font-pretendard bg-transparent w-full h-full text-white relative"
   >
-    <div class="bg-black/20 rounded-xl w-screen h-screen p-6 flex flex-col">
-      <div>
+    <div
+      class="bg-black/20 rounded-xl w-screen h-screen p-6 flex flex-col overflow-auto"
+    >
+      <div class="fixed top-6 z-50">
         <input
           id="search"
           type="text"
@@ -19,10 +21,10 @@
           placeholder="Press / to focus"
         />
       </div>
-      <div class="py-2"></div>
+      <div class="py-6"></div>
       <div class="grid grid-cols-2 gap-4" id="list">
         <div
-          class="relative flex flex-col items-center text-center justify-center p-4 rounded-xl cursor-pointer transition duration-300 hover:bg-black/40 hidden"
+          class="relative flex flex-col items-center text-center justify-center p-4 rounded-xl cursor-pointer transition duration-300 hover:bg-black/40 hidden focus:outline-white"
         >
           <p class="text-5xl">🔞</p>
           <div class="py-1.5"></div>

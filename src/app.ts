@@ -5,6 +5,7 @@ import {
   app,
   globalShortcut,
   nativeImage,
+  screen,
 } from "electron"
 import { join } from "path"
 
@@ -19,6 +20,8 @@ const createMojiWindow = async () => {
     height: 480,
     frame: false,
     transparent: true,
+    show: false,
+    alwaysOnTop: true,
   })
 
   mojiWin.setMenu(null)
@@ -34,7 +37,9 @@ const createMojiWindow = async () => {
   })
 }
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  await createMojiWindow()
+
   tray = new Tray(
     nativeImage.createFromPath(join(__dirname, "../images/icon.png"))
   )
@@ -56,10 +61,14 @@ app.whenReady().then(() => {
 
   tray.setContextMenu(contextMenu)
   tray.on("click", () => {
-    createMojiWindow()
+    mojiWin?.show()
   })
 
   globalShortcut.register("Shift+Capslock", () => {
-    createMojiWindow()
+    mojiWin?.show()
+  })
+
+  globalShortcut.register("Escape", () => {
+    mojiWin?.hide()
   })
 })
