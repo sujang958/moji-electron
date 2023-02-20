@@ -2,6 +2,12 @@
   display: none;
 }
 
+@font-face {
+  font-family: toss-face;
+
+  src: url("TossFace.ttf");
+}
+
 /*
 ! tailwindcss v3.2.7 | MIT License | https://tailwindcss.com
 */
@@ -533,12 +539,16 @@ video {
   left: 1rem;
 }
 
+.left-6 {
+  left: 1.5rem;
+}
+
 .right-4 {
   right: 1rem;
 }
 
-.top-4 {
-  top: 1rem;
+.right-6 {
+  right: 1.5rem;
 }
 
 .top-6 {
@@ -654,11 +664,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -669,7 +674,7 @@ video {
 }
 
 .font-pretendard {
-  font-family: Pretendard Variable, -apple-system, Inter, Noto Sans KR, sans-serif;
+  font-family: toss-face, Pretendard Variable, -apple-system, Inter, Noto Sans KR, sans-serif;
 }
 
 .text-5xl {

@@ -48,15 +48,27 @@ const finish = () => {
   emojiList.innerHTML = ""
 }
 
+const fetchEmojis = async (query) => {
+  const res = await fetch(
+    `https://api.emojisworld.fr/v1/search?q=${query}&limit=25`
+  )
+  const data = await res.json()
+
+  localStorage.setItem(query, JSON.stringify(data))
+
+  return data
+}
+
 searchInput.addEventListener("keypress", async (event) => {
   if (event.key !== "Enter") return
 
   isLoading.loading = true
 
-  const res = await fetch(
-    `https://api.emojisworld.fr/v1/search?q=${searchInput.value.trim()}&limit=25`
-  )
-  const data = await res.json()
+  const query = String(searchInput.value).trim().toLowerCase()
+
+  const data = localStorage.getItem(query)
+    ? JSON.parse(localStorage.getItem(query))
+    : await fetchEmojis(query)
 
   isLoading.loading = false
 
@@ -83,8 +95,6 @@ searchInput.addEventListener("keypress", async (event) => {
 
     emojiList.appendChild(emojiItem)
   }
-
-  console.log(data)
 })
 
 const showSnack = () => {

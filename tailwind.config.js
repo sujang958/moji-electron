@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         pretendard: [
+          "toss-face",
           "Pretendard Variable",
           "-apple-system",
           "Inter",
