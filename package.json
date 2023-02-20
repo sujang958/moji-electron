@@ -6,17 +6,37 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build && concurrently \"electron ./out/app.js\" \"yarn css:dev\"",
-    "build": "tsc",
-    "css:dev": "tailwindcss -i ./screens/app.css -o ./screens/out.css --watch"
+    "build": "yarn css && tsc",
+    "css:dev": "tailwindcss -i ./screens/app.css -o ./screens/out.css --watch",
+    "css": "tailwindcss -i ./screens/app.css -o ./screens/out.css",
+    "build:app": "yarn build && electron-builder --win --x64"
   },
   "devDependencies": {
     "@types/node": "^18.13.0",
+    "electron": "^23.1.0",
     "electron-builder": "^23.6.0",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "concurrently": "^7.6.0",
-    "electron": "^23.1.0"
+    "concurrently": "^7.6.0"
+  },
+  "build": {
+    "appId": "xyz.sujang.moji",
+    "productName": "Moji",
+    "asar": true,
+    "win": {
+      "target": "nsis",
+      "icon": "./resources/icon.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "shortcutName": "Moji",
+      "uninstallDisplayName": "Remove Moji"
+    },
+    "directories": {
+      "output": "./dist/",
+      "app": "."
+    }
   }
 }

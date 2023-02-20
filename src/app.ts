@@ -41,7 +41,7 @@ app.whenReady().then(async () => {
   await createMojiWindow()
 
   tray = new Tray(
-    nativeImage.createFromPath(join(__dirname, "../images/icon.png"))
+    nativeImage.createFromPath(join(__dirname, "../resources/icon.png"))
   )
   tray.setToolTip("Moji")
 
